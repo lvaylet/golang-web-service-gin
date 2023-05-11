@@ -1,4 +1,4 @@
-module github.com/lvaylet/web-service-gin
+module github.com/lvaylet/golang-web-service-gin
 
 go 1.20
 
