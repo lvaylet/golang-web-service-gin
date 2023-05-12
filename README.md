@@ -32,10 +32,10 @@ Containerize, push image to GCR and deploy to Cloud Run with authentication with
 
 ```sh
 PROJECT_ID=<YOUR-PROJECT-ID>
-PROJECT_NUMBER=<YOUR-PROJECT-NUMBER>
+PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
 gcloud builds submit --tag gcr.io/${PROJECT_ID}/golang-web-service-gin:latest
 gcloud run deploy golang-web-service-gin \
-    --image=gcr.io/${PROJECT_ID}/golang-web-service-gin@sha256:d065bfad8e318d39f28593ce754d384839bab01f9692b486527b6e946a0916af \
+    --image=gcr.io/${PROJECT_ID}/golang-web-service-gin:latest \
     --no-allow-unauthenticated \
     --service-account=${PROJECT_NUMBER}-compute@developer.gserviceaccount.com \
     --max-instances=5 \
