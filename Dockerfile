@@ -8,7 +8,7 @@
 ############################
 # Always pull images by digest to avoid man-in-the-middle attacks.
 # golang:alpine-1.20
-FROM golang@sha256:4ee203ff3933e7a6f18d3574fd6661a73b58c60f028d2927274400f4774aaa41 AS builder
+FROM golang@sha256:3ce8313c3513515040870c55e0c041a2b94f3576a58cfd3948633604214aa811 AS builder
 
 # Install git + SSL ca certificates.
 # Git is required for fetching the dependencies.
