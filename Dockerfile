@@ -7,8 +7,8 @@
 # STEP 1 build executable binary
 ############################
 # Always pull images by digest to avoid man-in-the-middle attacks.
-# golang:alpine-1.20
-FROM golang@sha256:337543447173c2238c78d4851456760dcc57c1dfa8c3bcd94cbee8b0f7b32ad0 AS builder
+# golang:1.21-alpine
+FROM golang@sha256:f475434ea2047a83e9ba02a1da8efc250fa6b2ed0e9e8e4eb8c5322ea6997795 AS builder
 
 # Install git + SSL ca certificates.
 # Git is required for fetching the dependencies.
