@@ -1,13 +1,17 @@
-# Create the smallest and secured golang docker image based on scratch
-# https://chemidy.medium.com/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324
+# Usage
 # Build with:
 # docker build -t golang-web-service-gin:latest .
+#
+# References:
+# - Create the smallest and secured golang docker image based on scratch
+# https://chemidy.medium.com/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324
 
 ############################
-# STEP 1 build executable binary
+# STEP 1 Build executable binary
 ############################
 # Always pull images by digest to avoid man-in-the-middle attacks.
-# golang:1.21-alpine
+# For `golang:1.21-alpine`, check https://hub.docker.com/_/golang/tags?name=alpine
+# and pick your preferred digest for linux/amd64 OS/arch, for `example f475434ea204`
 FROM golang@sha256:f475434ea2047a83e9ba02a1da8efc250fa6b2ed0e9e8e4eb8c5322ea6997795 AS builder
 
 # Install git + SSL ca certificates.
@@ -58,7 +62,7 @@ COPY main.go .
 RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/main
 
 ############################
-# STEP 2 build a small image
+# STEP 2 Build small image
 ############################
 FROM scratch AS production
 
