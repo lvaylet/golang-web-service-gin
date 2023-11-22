@@ -12,7 +12,7 @@
 # Always pull images by digest to avoid man-in-the-middle attacks.
 # For `golang:1.21-alpine`, check https://hub.docker.com/_/golang/tags?name=alpine
 # and pick your preferred digest for linux/amd64 OS/arch, for `example f475434ea204`
-FROM golang@sha256:f475434ea2047a83e9ba02a1da8efc250fa6b2ed0e9e8e4eb8c5322ea6997795 AS builder
+FROM golang@sha256:4205117042f288a0112ac77ad0c7bb1df6954b010876431cc506da9aab716993 AS builder
 
 # Install git + SSL ca certificates.
 # Git is required for fetching the dependencies.
